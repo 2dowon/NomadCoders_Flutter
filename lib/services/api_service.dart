@@ -40,7 +40,7 @@ class ApiService {
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
-      final episodes = jsonDecode(response.body);
+      final List<dynamic> episodes = jsonDecode(response.body);
       return episodes
           .map((episode) => WebtoonEpisodeModel.fromJson(episode))
           .toList();
